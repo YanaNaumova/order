@@ -95,7 +95,7 @@ order.addEventListener("submit", (event) => {
     message.textContent = "Ваш заказ успешно отправлен";
   } else {
     message.style.color = "red";
-    message.textContent = "Пожалуйста заполните правильно все поля";
+    message.textContent = "Пожалуйста заполните все поля правильно";
   }
 });
 
