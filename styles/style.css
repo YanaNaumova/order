@@ -28,7 +28,7 @@
 .order input[type="submit"],
 .paidOrder,
 .sentOrder,
-.eceivedOrder {
+.receivedOrder {
   background-color: #2eb9e7;
   border-radius: 8px;
   border: none;
@@ -65,7 +65,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 10px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.hiddenCreateOrder {
+  animation: slideInLeft 0.8s forwards;
 }
 
 .successNotification,
@@ -81,14 +86,40 @@
   box-shadow: 5px 3px 3px 2px black;
 }
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 .successNotification {
   background-color: #3fc53f;
+  transition: right 0.8s ease;
+  animation: slideInRight 0.8s forwards;
 }
 
 .paidNotification,
 .sentNotification,
 .receivedNotification {
   background-color: #dfaf2c;
+  transition: right 0.8s ease;
+  animation: slideInRight 0.8s forwards;
 }
 
 .ok img {
@@ -110,4 +141,8 @@
   width: 100%;
   justify-content: space-between;
   gap: 16px;
+}
+
+.closedCreateOrder {
+  cursor: pointer;
 }
