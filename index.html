@@ -14,9 +14,20 @@
     <div class="container">
       <form class="order">
         <h1>Создание заказа</h1>
-        <input type="text" placeholder="Адрес" class="adress" />
-        <input type="text" placeholder="Цена" class="prise" />
-        <input type="text" placeholder="Получатель" class="recipient" />
+        <label for="adress" class="labelAdress">
+          <input type="text" placeholder="Адрес" class="adress" id="adress" />
+        </label>
+        <label for="preise" class="labelPreis">
+          <input type="text" placeholder="Цена" class="prise" id="preise" />
+        </label>
+        <label for="recipient" class="labelRecipient">
+          <input
+            type="text"
+            placeholder="Получатель"
+            class="recipient"
+            id="recipient"
+          />
+        </label>
         <input type="submit" value="Создать" />
       </form>
       <div class="cards"></div>

@@ -18,8 +18,12 @@
   border: 1px solid black;
   border-radius: 16px;
 }
+.order label {
+  width: 100%;
+}
 
 .order input[type="text"] {
+  width: 100%;
   padding: 5px;
   border-radius: 8px;
   border: 1px solid black;
@@ -148,4 +152,10 @@
   border: 1px solid black;
   padding: 15px;
   border-radius: 6px;
+}
+
+.labelAdress,
+.labelPreis,
+.labelRecipient {
+  color: red;
 }
