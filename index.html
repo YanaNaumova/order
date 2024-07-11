@@ -14,18 +14,12 @@
     <div class="container">
       <form class="order">
         <h1>Создание заказа</h1>
-        <input type="text" placeholder="Адрес" />
-        <input type="text" placeholder="Цена" />
-        <input type="text" placeholder="Получатель" />
+        <input type="text" placeholder="Адрес" class="adress" />
+        <input type="text" placeholder="Цена" class="prise" />
+        <input type="text" placeholder="Получатель" class="recipient" />
         <input type="submit" value="Создать" />
       </form>
-
-      <div class="btns hiddenBtns">
-        <button class="paidOrder">Заказ оплачен</button>
-        <button class="sentOrder">Заказ отправлен</button>
-        <button class="receivedOrder">Заказ получен</button>
-      </div>
-
+      <div class="cards"></div>
       <div class="notificationsContainer"></div>
     </div>
     <script src="js/main.js"></script>

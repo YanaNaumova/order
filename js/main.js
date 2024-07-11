@@ -1,17 +1,13 @@
 const order = document.querySelector(".order");
-const btns = document.querySelector(".btns");
 const successNotification = document.querySelector(".successNotification");
 const notificationsContainer = document.querySelector(
   ".notificationsContainer"
 );
-const paidOrder = document.querySelector(".paidOrder");
-const sentOrder = document.querySelector(".sentOrder");
-const receivedOrder = document.querySelector(".receivedOrder");
+const inputAdress = document.querySelector(".adress");
+const inputPrise = document.querySelector(".prise");
+const inputRecipient = document.querySelector(".recipient");
 
-function showBtn() {
-  btns.classList.remove("hiddenBtns");
-  btns.classList.add("showBtns");
-}
+const cards = document.querySelector(".cards");
 
 function createNotification(classNameEl, h2Text, pText) {
   const elementNotification = document.createElement("div");
@@ -67,29 +63,83 @@ function closedNotification(
 
 order.addEventListener("submit", (event) => {
   event.preventDefault();
-  showBtn();
+  createCard();
   createNotification(
     "successNotification",
     "Заказ создан",
     "Ожидайте дальнейшей информации"
   );
+  inputAdress.value = "";
+  inputPrise.value = "";
+  inputRecipient.value = "";
 });
 
-paidOrder.addEventListener("click", () => {
-  createNotification("paidNotification", "Заказ оплачен", "Ожидайте отправки");
-});
+function createCard() {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  cards.append(card);
 
-sentOrder.addEventListener("click", () => {
-  createNotification("sentNotification", "Заказ отправлен", "Ожидайте курьера");
-});
+  const adress = document.createElement("p");
+  adress.textContent = `Adress: ${inputAdress.value}`;
 
-receivedOrder.addEventListener("click", () => {
-  createNotification("receivedNotification", "Заказ получен", "Ждем вас снова");
-});
+  const preis = document.createElement("p");
+  preis.textContent = `Preis: ${inputPrise.value}`;
+
+  const recipient = document.createElement("p");
+  recipient.textContent = `Recipient: ${inputRecipient.value}`;
+
+  const status = document.createElement("p");
+
+  card.append(adress, preis, recipient, status);
+
+  const btns = document.createElement("div");
+  btns.classList.add("btns");
+  card.append(btns);
+
+  const paidOrderBtn = document.createElement("button");
+  paidOrderBtn.classList.add("paidOrder");
+  paidOrderBtn.textContent = "Оплатить";
+
+  const sentOrderBtn = document.createElement("button");
+  sentOrderBtn.classList.add("sentOrder");
+  sentOrderBtn.textContent = "Отправить";
+
+  const receivedOrderBtn = document.createElement("button");
+  receivedOrderBtn.classList.add("receivedOrder");
+  receivedOrderBtn.textContent = "Получить";
+
+  showNotification(paidOrderBtn, sentOrderBtn, receivedOrderBtn, status);
+  btns.append(paidOrderBtn, sentOrderBtn, receivedOrderBtn);
+}
+
+function showNotification(btn1, btn2, btn3, statusElement) {
+  statusElement.textContent = "Заказ создан";
+  btn1.addEventListener("click", () => {
+    createNotification(
+      "paidNotification",
+      "Заказ оплачен",
+      "Ожидайте отправки"
+    );
+    statusElement.textContent = "Заказ оплачен";
+  });
+
+  btn2.addEventListener("click", () => {
+    createNotification(
+      "sentNotification",
+      "Заказ отправлен",
+      "Ожидайте курьера"
+    );
+    statusElement.textContent = "Заказ отправлен";
+  });
+
+  btn3.addEventListener("click", () => {
+    createNotification(
+      "receivedNotification",
+      "Заказ получен",
+      "Ждем вас снова"
+    );
+    statusElement.textContent = "Заказ получен";
+  });
+}
+
 //валидация - адрес - с большой буквы,латиница, минимальная цена максимальная цена только числа, получатель без спец символов и чисел
-//создание карточки заказа, каждый заказ имеет свой статус,
-//авторизация
-//регистрация
-//пагинация
-//посмотреть мои заказы
-//localstorsge

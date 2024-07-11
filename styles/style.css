@@ -38,22 +38,9 @@
 }
 
 .btns {
-  margin-top: 34px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 160px;
-  position: absolute;
-  opacity: 1;
-  transition: left 0.8s ease;
-}
-
-.hiddenBtns {
-  left: -160px;
-}
-
-.showBtns {
-  left: 15px;
 }
 
 .notificationsContainer {
@@ -145,4 +132,20 @@
 
 .closedCreateOrder {
   cursor: pointer;
+}
+
+.cards {
+  padding: 15px;
+  display: flex;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 6px;
 }
